@@ -141,17 +141,17 @@ async function init() {
 }
 
 // Schedule to run every 12 hours
-cron.schedule('0 0 */12 * *', async () => {
-    const latestUpdate = await checkShopifyChangelog();
-    if (latestUpdate) {
-        const lastMessage = await getLastMessageFromSlack();
-        if (!lastMessage || !lastMessage.includes(latestUpdate.id)) {
-            await sendMessageToSlack(latestUpdate.message);
-        }else {
-            console.log(`Message with ID ${latestUpdate.id} already exists in Slack channel.`);
-        }
-    }
-});
+// cron.schedule('0 0 */12 * *', async () => {
+//     const latestUpdate = await checkShopifyChangelog();
+//     if (latestUpdate) {
+//         const lastMessage = await getLastMessageFromSlack();
+//         if (!lastMessage || !lastMessage.includes(latestUpdate.id)) {
+//             await sendMessageToSlack(latestUpdate.message);
+//         }else {
+//             console.log(`Message with ID ${latestUpdate.id} already exists in Slack channel.`);
+//         }
+//     }
+// });
 
 // Start the initial check
 init();
