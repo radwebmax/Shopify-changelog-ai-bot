@@ -121,6 +121,8 @@ async function sendMessageToSlack(message) {
       await slackClient.chat.postMessage({
         channel: slackChannel,
         text: message,
+        username: 'Shopify Changelog Bot', // Custom bot username
+        icon_url: 'https://itsquad.agency/assets/imgs/shopify.png', // Custom bot icon
       });
     } catch (error) {
       console.error('Error sending message to Slack:', error);
